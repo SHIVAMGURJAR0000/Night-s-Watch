@@ -50,13 +50,13 @@ route.get("/google/callback", async (req, res) => {
 
     const { access_token, id_token } = tokenRes.data;
 
-    // 2️⃣ Get user info from Google
+    // 2️ Get user info from Google
     const userInfoRes = await axios.get(
       "https://www.googleapis.com/oauth2/v3/userinfo",
       { headers: { Authorization: `Bearer ${access_token}` } }
     );
 
-    // 3️⃣ Send or store user info
+    // 3️ Send or store user info
     // res.json({
     //   tokens: { access_token, id_token },
     //   user: userInfoRes.data,
